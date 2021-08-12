@@ -27,6 +27,14 @@ def get_all_burger():
     return burgers_list
 
 
+def create_burger():
+    code = input("Saisissez le code du nouveau burger : ").lower()
+    name = input("Saisissez le nom du nouveau burger : ").lower()
+    price = float(input("Saisissez le prix du nouveau burger : "))
+
+    burgers.append([code, name, price])
+
+
 def main():
     choice = 0
     while choice != "99":
@@ -35,6 +43,8 @@ def main():
 
         if choice == "1":
             print(get_all_burger())
+        elif choice == "2":
+            create_burger()
         elif choice == "99":
             print("Au revoir !")
             exit()
