@@ -44,6 +44,14 @@ def update_burger(burgers, code):
     return burgers
 
 
+def remove_burger(burgers, code):
+    for burger in burgers:
+        if burger[0] == code:
+            burgers.remove(burger)
+
+    return burgers
+
+
 def check_existing_burger(burgers, code):
     result = False
     for burger in burgers:
@@ -71,14 +79,22 @@ def main():
 
         if choice == "1":
             print(get_all_burger(biburgix_menu))
+
         elif choice == "2":
             biburgix_menu = create_burger(biburgix_menu)
+
         elif choice == "3":
             code = input("Saisissez le code du burger à modifier : ").lower()
             if check_existing_burger(biburgix_menu, code):
                 biburgix_menu = update_burger(biburgix_menu, code)
             else:
                 print("Le burger à modifier n'existe pas.")
+
+        elif choice == "4":
+            code = input("Saisissez le code du burger à modifier : ").lower()
+            if check_existing_burger(biburgix_menu, code):
+                remove_burger(biburgix_menu, code)
+
         elif choice == "99":
             print("Au revoir !")
             exit()
