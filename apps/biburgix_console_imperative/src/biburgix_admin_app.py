@@ -91,9 +91,13 @@ def main():
                 print("Le burger à modifier n'existe pas.")
 
         elif choice == "4":
+            print(get_all_burger(biburgix_menu))
+
             code = input("Saisissez le code du burger à modifier : ").lower()
             if check_existing_burger(biburgix_menu, code):
                 remove_burger(biburgix_menu, code)
+
+            print(get_all_burger(biburgix_menu))
 
         elif choice == "99":
             print("Au revoir !")
